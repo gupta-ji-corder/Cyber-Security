@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy | Cyber Security</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0a0a0a;
+      color: #e0f7ff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    header {
+      background: linear-gradient(90deg, #0c0c0c, #1a1a1a);
+      box-shadow: 0 0 20px #00ffffaa;
+      height: 80px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 25px;
+    }
+
+    #navbar {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1200px;
+      align-items: center;
+    }
+
+    .left img {
+      height: 70px;
+      filter: drop-shadow(0 0 10px #00ffff);
+      cursor: pointer;
+    }
+
+    /* Desktop nav */
+    .mid ul {
+      display: flex;
+      list-style: none;
+    }
+
+    .mid ul li {
+      padding: 12px 22px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .mid ul li a {
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      text-shadow: 0 0 5px #00ffffaa;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+      display: block;
+      padding: 6px 0;
+    }
+
+    .mid ul li:hover a,
+    .mid ul li.active a {
+      color: #ffffff;
+      text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
+      text-decoration: underline;
+    }
+
+    .right button {
+      padding: 9px 24px;
+      border-radius: 50px;
+      border: 1.5px solid #00ffff;
+      background-color: transparent;
+      color: #00ffff;
+      font-weight: 700;
+      font-size: 15px;
+      box-shadow: 0 0 10px #00ffffaa;
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      margin-left: 12px;
+    }
+
+    .right button:hover {
+      background-color: #00ffff;
+      color: #000;
+      box-shadow: 0 0 25px #00ffff, 0 0 50px #00ffff;
+    }
+
+    /* Hamburger for mobile */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      width: 28px;
+      height: 22px;
+      justify-content: space-between;
+    }
+
+    .hamburger div {
+      height: 3px;
+      background-color: #00ffff;
+      border-radius: 2px;
+      box-shadow: 0 0 8px #00ffffaa;
+      transition: all 0.3s ease;
+    }
+
+    /* Privacy Policy Content */
+    .privacy-container {
+      max-width: 1000px;
+      margin: 100px auto;
+      padding: 40px;
+      background: linear-gradient(145deg, #001f242d, #004d661a);
+      border-radius: 20px;
+      border: 2px solid #00ffff99;
+      box-shadow:
+        0 0 30px 1px #00ffff55,
+        inset 0 0 25px 0 #00ffff88;
+      backdrop-filter: saturate(180%) blur(12px);
+    }
+
+    .privacy-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .privacy-header h1 {
+      color: #00ffff;
+      font-size: 2.75rem;
+      font-weight: 900;
+      margin-bottom: 15px;
+      letter-spacing: 0.15em;
+      text-shadow:
+        0 0 20px #00ffff,
+        0 0 40px #00ffff;
+    }
+
+    .privacy-header p {
+      color: #00ffffaa;
+      font-size: 1.1rem;
+    }
+
+    .privacy-content {
+      line-height: 1.8;
+    }
+
+    .privacy-section {
+      margin-bottom: 40px;
+    }
+
+    .privacy-section h2 {
+      color: #00ffff;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #00ffff55;
+    }
+
+    .privacy-section h3 {
+      color: #00ffff;
+      font-size: 1.4rem;
+      margin: 25px 0 10px;
+    }
+
+    .privacy-section p {
+      margin-bottom: 15px;
+      color: #c0f8ff;
+    }
+
+    .privacy-section ul {
+      margin: 15px 0 25px 30px;
+    }
+
+    .privacy-section li {
+      margin-bottom: 10px;
+      color: #c0f8ff;
+    }
+
+    .highlight {
+      color: #00ffff;
+      font-weight: 600;
+    }
+
+    .last-updated {
+      text-align: right;
+      font-style: italic;
+      color: #00ffffaa;
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
+
+    /* Floating Cyber Elements */
+    .floating-cyber {
+      position: fixed;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.1;
+    }
+
+    .floating-cyber.circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 1px solid #00ffff;
+      animation: float 15s infinite linear;
+    }
+
+    .floating-cyber.square {
+      width: 80px;
+      height: 80px;
+      border: 1px dashed #00ffff;
+      animation: float 12s infinite linear reverse;
+    }
+
+    .floating-cyber.triangle {
+      width: 0;
+      height: 0;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-bottom: 100px solid #00ffff22;
+      animation: float 18s infinite linear;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+      25% {
+        transform: translate(50vw, 25vh) rotate(90deg);
+      }
+      50% {
+        transform: translate(25vw, 50vh) rotate(180deg);
+      }
+      75% {
+        transform: translate(-25vw, 25vh) rotate(270deg);
+      }
+      100% {
+        transform: translate(0, 0) rotate(360deg);
+      }
+    }
+
+    /* Footer */
+    footer {
+      background: #001f24;
+      text-align: center;
+      padding: 40px 15px;
+      color: #00ffffcc;
+      box-shadow: inset 0 4px 12px #00ffff44;
+      font-weight: 600;
+      font-size: 0.95rem;
+      user-select: none;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      text-align: left;
+    }
+
+    .footer-column h3 {
+      color: #00ffff;
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+      text-shadow: 0 0 10px #00ffff88;
+    }
+
+    .footer-column p {
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: #00ffffaa;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      display: block;
+    }
+
+    .footer-links a:hover {
+      color: #00ffff;
+      text-decoration: underline;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      color: #00ffffaa;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #00ffff;
+    }
+
+    .copyright {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #00ffff33;
+      grid-column: 1 / -1;
+      text-align: center;
+    }
+
+    footer a {
+      color: #00ffffaa;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+      color: #00ffff;
+    }
+
+    /* Responsive */
+    @media screen and (max-width: 768px) {
+      .mid ul {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        background: #001f24;
+        height: calc(100vh - 80px);
+        width: 220px;
+        flex-direction: column;
+        padding-top: 20px;
+        transition: right 0.3s ease;
+        box-shadow: -4px 0 30px #00ffffaa;
+        border-radius: 0 0 0 15px;
+        z-index: 1100;
+      }
+
+      .mid ul.active {
+        right: 0;
+      }
+
+      .mid ul li {
+        padding: 18px 25px;
+      }
+
+      .mid ul li a {
+        font-size: 18px;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hamburger.active div:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .hamburger.active div:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active div:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+
+      .right {
+        display: none;
+      }
+
+      .privacy-container {
+        margin: 100px 20px;
+        padding: 30px;
+      }
+
+      .privacy-header h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .privacy-container {
+        padding: 25px 20px;
+        margin: 100px 15px;
+      }
+
+      .privacy-header h1 {
+        font-size: 1.8rem;
+      }
+
+      .privacy-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .privacy-section h3 {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating Cyber Elements -->
+  <div class="floating-cyber circle" style="top:20%; left:10%;"></div>
+  <div class="floating-cyber square" style="top:70%; left:80%;"></div>
+  <div class="floating-cyber triangle" style="top:30%; left:70%;"></div>
+  <div class="floating-cyber circle" style="top:60%; left:20%;"></div>
+
+  <header>
+    <div id="navbar">
+      <div class="left">
+        <img src="images/logo.jpg" alt="Logo" onclick="window.location.href='index.html'" />
+      </div>
+
+      <nav class="mid">
+        <ul id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#service">Services</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="right">
+        <button onclick="window.location.href='login_page.html'">Login</button>
+        <button onclick="window.location.href='register_page.html'">Register</button>
+      </div>
+
+      <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Privacy Policy Content -->
+  <div class="privacy-container">
+    <div class="privacy-header">
+      <h1>PRIVACY POLICY</h1>
+      <p>Last Updated: May 15, 2025</p>
+    </div>
+
+    <div class="privacy-content">
+      <div class="privacy-section">
+        <h2>Introduction</h2>
+        <p>Welcome to <span class="highlight">CyberSec Solutions</span>. We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.</p>
+        <p>By accessing or using our services, you agree to the collection and use of information in accordance with this policy.</p>
+      </div>
+
+      <div class="privacy-section">
+        <h2>Information We Collect</h2>
+        <p>We may collect the following types of information:</p>
+        
+        <h3>Personal Information</h3>
+        <ul>
+          <li>Name, email address, phone number, and other contact details</li>
+          <li>Company name and job title (for business clients)</li>
+          <li>Payment information for service purchases</li>
+          <li>Account credentials for our security services</li>
+        </ul>
+
+        <h3>Technical Information</h3>
+        <ul>
+          <li>IP address, browser type, and operating system</li>
+          <li>Pages visited, time spent, and navigation patterns</li>
+          <li>Device information and unique identifiers</li>
+          <li>Security logs and threat detection data</li>
+        </ul>
+      </div>
+
+      <div class="privacy-section">
+        <h2>How We Use Your Information</h2>
+        <p>We use the collected information for the following purposes:</p>
+        <ul>
+          <li>To provide and maintain our security services</li>
+          <li>To monitor and protect against security threats</li>
+          <li>To communicate with you about your account or services</li>
+          <li>To improve our website and services</li>
+          <li>To process payments and prevent fraud</li>
+          <li>To comply with legal obligations</li>
+        </ul>
+      </div>
+
+      <div class="privacy-section">
+        <h2>Data Security</h2>
+        <p>We implement industry-standard security measures to protect your information:</p>
+        <ul>
+          <li>Encryption of sensitive data in transit and at rest</li>
+          <li>Regular security audits and vulnerability testing</li>
+          <li>Access controls and multi-factor authentication</li>
+          <li>Employee training on data protection</li>
+        </ul>
+        <p>Despite these measures, no method of transmission over the Internet or electronic storage is 100% secure, and we cannot guarantee absolute security.</p>
+      </div>
+
+      <div class="privacy-section">
+        <h2>Information Sharing</h2>
+        <p>We do not sell your personal information. We may share information with:</p>
+        <ul>
+          <li>Service providers who assist in delivering our services</li>
+          <li>Law enforcement when required by law</li>
+          <li>Other parties with your consent</li>
+        </ul>
+      </div>
+
+      <div class="privacy-section">
+        <h2>Cookies and Tracking</h2>
+        <p>We use cookies and similar tracking technologies to:</p>
+        <ul>
+          <li>Authenticate users and prevent fraud</li>
+          <li>Analyze website traffic and usage patterns</li>
+          <li>Personalize your experience</li>
+        </ul>
+        <p>You can control cookies through your browser settings, but disabling them may affect website functionality.</p>
+      </div>
+
+      <div class="privacy-section">
+        <h2>Your Rights</h2>
+        <p>Depending on your location, you may have the right to:</p>
+        <ul>
+          <li>Access, correct, or delete your personal information</li>
+          <li>Object to or restrict certain processing</li>
+          <li>Receive a copy of your data in a portable format</li>
+          <li>Withdraw consent where applicable</li>
+        </ul>
+        <p>To exercise these rights, please contact us using the information below.</p>
+      </div>
+
+      <div class="privacy-section">
+        <h2>Terms and Conditions</h2>
+        <h3>Acceptance of Terms</h3>
+        <p>By using our services, you agree to these terms and conditions. If you do not agree, you must not use our services.</p>
+
+        <h3>Service Description</h3>
+        <p>We provide cyber security services including but not limited to vulnerability assessments, network security, and incident response.</p>
+
+        <h3>User Responsibilities</h3>
+        <ul>
+          <li>Provide accurate and complete information</li>
+          <li>Maintain the confidentiality of your account credentials</li>
+          <li>Comply with all applicable laws and regulations</li>
+          <li>Not engage in any illegal or unauthorized activities</li>
+        </ul>
+
+        <h3>Limitation of Liability</h3>
+        <p>To the maximum extent permitted by law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of our services.</p>
+
+        <h3>Changes to Terms</h3>
+        <p>We reserve the right to modify these terms at any time. Continued use after changes constitutes acceptance of the new terms.</p>
+      </div>
+
+      <div class="privacy-section">
+        <h2>Contact Us</h2>
+        <p>If you have questions about this Privacy Policy or Terms and Conditions, please contact us:</p>
+        <ul>
+          <li>Email: <span class="highlight">privacy@cybersecsolutions.com</span></li>
+          <li>Phone: <span class="highlight">+1 (555) 123-4567</span></li>
+          <li>Address: <span class="highlight">113, Civil Lines, Suraj Nagar, Jaipur, Rajasthan 302006</span></li>
+        </ul>
+      </div>
+
+      <div class="last-updated">
+        <p>This policy was last updated on June 15, 2025</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>CyberSec Solutions</h3>
+        <p>Providing cutting-edge cyber security services to protect your digital assets from evolving threats in today's complex technological landscape.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#service">Services</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="Privacy_Policy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Contact Info</h3>
+        <p><i class="fas fa-map-marker-alt"></i> DR CBS Cyber Security Services LLP</p>
+        <p><i class="fas fa-phone"></i> 08829077770</p>
+        <p><i class="fas fa-envelope"></i> cyberdost@mha.gov.in</p>
+        <p><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM</p>
+      </div>
+      <div class="footer-column">
+        <h3>Address</h3>
+        <p>113, Civil Lines, Suraj Nagar, Civil Lines, Jaipur, Rajasthan, Jaipur, Rajasthan 302006</p>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 CyberSec Solutions. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  
+  <script>
+    // Mobile Navigation
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    const navItems = document.querySelectorAll('.mid ul li a');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        if (navLinks.classList.contains('active')) {
+          hamburger.classList.remove('active');
+          navLinks.classList.remove('active');
+        }
+      });
+    });
+
+    // Create additional floating cyber elements
+    document.addEventListener('DOMContentLoaded', () => {
+      const colors = ['#00ffff', '#00ff88', '#0088ff', '#ff00ff'];
+      const types = ['circle', 'square', 'triangle'];
+      
+      for (let i = 0; i < 8; i++) {
+        const element = document.createElement('div');
+        element.className = `floating-cyber ${types[Math.floor(Math.random() * types.length)]}`;
+        element.style.top = `${Math.random() * 100}%`;
+        element.style.left = `${Math.random() * 100}%`;
+        element.style.opacity = `${Math.random() * 0.1 + 0.05}`;
+        element.style.animationDuration = `${Math.random() * 10 + 10}s`;
+        
+        if (element.className.includes('circle') || element.className.includes('square')) {
+          element.style.borderColor = colors[Math.floor(Math.random() * colors.length)];
+        } else if (element.className.includes('triangle')) {
+          element.style.borderBottomColor = colors[Math.floor(Math.random() * colors.length)];
+        }
+        
+        document.body.appendChild(element);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cyber Security</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0a0a0a;
+      color: #e0f7ff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    header {
+      background: linear-gradient(90deg, #0c0c0c, #1a1a1a);
+      box-shadow: 0 0 20px #00ffffaa;
+      height: 80px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 25px;
+    }
+
+    #navbar {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1200px;
+      align-items: center;
+    }
+
+    .left img {
+      height: 70px;
+      filter: drop-shadow(0 0 10px #00ffff);
+      cursor: pointer;
+    }
+
+    /* Desktop nav */
+    .mid ul {
+      display: flex;
+      list-style: none;
+    }
+
+    .mid ul li {
+      padding: 12px 22px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .mid ul li a {
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      text-shadow: 0 0 5px #00ffffaa;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+      display: block;
+      padding: 6px 0;
+    }
+
+    .mid ul li:hover a,
+    .mid ul li.active a {
+      color: #ffffff;
+      text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
+      text-decoration: underline;
+    }
+
+    .right button {
+      padding: 9px 24px;
+      border-radius: 50px;
+      border: 1.5px solid #00ffff;
+      background-color: transparent;
+      color: #00ffff;
+      font-weight: 700;
+      font-size: 15px;
+      box-shadow: 0 0 10px #00ffffaa;
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      margin-left: 12px;
+    }
+
+    .right button:hover {
+      background-color: #00ffff;
+      color: #000;
+      box-shadow: 0 0 25px #00ffff, 0 0 50px #00ffff;
+    }
+
+    /* Hamburger for mobile */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      width: 28px;
+      height: 22px;
+      justify-content: space-between;
+    }
+
+    .hamburger div {
+      height: 3px;
+      background-color: #00ffff;
+      border-radius: 2px;
+      box-shadow: 0 0 8px #00ffffaa;
+      transition: all 0.3s ease;
+    }
+
+    /* Background Content Section */
+    .background-content {
+      position: relative;
+      height: calc(100vh - 80px);
+      margin-top: 80px;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), 
+                  url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      overflow: hidden;
+    }
+
+    .cyber-globe {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #00ffff22, transparent 70%);
+      border: 2px solid #00ffff;
+      box-shadow: 0 0 50px #00ffff, inset 0 0 30px #00ffff;
+      position: relative;
+      margin-bottom: 40px;
+      animation: pulse 4s infinite alternate;
+    }
+
+    .cyber-globe::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, transparent 60%, #00ffff22 100%);
+      border: 1px dashed #00ffff88;
+    }
+
+    .cyber-globe::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 1px dotted #00ffff55;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 50px #00ffff, inset 0 0 30px #00ffff;
+      }
+      100% {
+        box-shadow: 0 0 80px #00ffff, inset 0 0 50px #00ffff;
+      }
+    }
+
+    .background-content h1 {
+      color: #00ffff;
+      font-size: 3.5rem;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
+      margin-bottom: 20px;
+      animation: textGlow 3s infinite alternate;
+    }
+
+    @keyframes textGlow {
+      0% {
+        text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
+      }
+      100% {
+        text-shadow: 0 0 25px #00ffff, 0 0 50px #00ffff;
+      }
+    }
+
+    .background-content p {
+      color: #c0f8ff;
+      font-size: 1.2rem;
+      max-width: 800px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px #00ffff55;
+    }
+
+    .scrolling-text {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      color: #00ffff;
+      font-size: 0.9rem;
+      opacity: 0.8;
+      animation: scrollText 15s linear infinite;
+    }
+
+    @keyframes scrollText {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    .cyber-grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(90deg, #0a0a0a 1px, transparent 1px),
+        linear-gradient(#0a0a0a 1px, transparent 1px);
+      background-size: 20px 20px;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    .cyber-dots {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, #00ffff22 1px, transparent 1px);
+      background-size: 15px 15px;
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
+    /* About Section */
+    .about {
+      max-width: 900px;
+      margin: 60px auto 100px;
+      padding: 50px 40px;
+      background: linear-gradient(145deg, #001f242d, #004d661a);
+      border-radius: 20px;
+      border: 2px solid #00ffff99;
+      box-shadow:
+        0 0 30px 1px #00ffff55,
+        inset 0 0 25px 0 #00ffff88;
+      backdrop-filter: saturate(180%) blur(12px);
+      color: #d0f7ff;
+      font-size: 1.15rem;
+      line-height: 1.75;
+      text-align: justify;
+      font-weight: 500;
+      transition: box-shadow 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, #00ffff22 0%, transparent 70%);
+      z-index: -1;
+    }
+
+    .about:hover {
+      box-shadow:
+        0 0 40px 2px #00ffffcc,
+        inset 0 0 35px 0 #00ffffcc;
+    }
+
+    .about h2 {
+      color: #00ffff;
+      font-size: 2.75rem;
+      font-weight: 900;
+      margin-bottom: 35px;
+      text-align: center;
+      letter-spacing: 0.15em;
+      text-shadow:
+        0 0 20px #00ffff,
+        0 0 40px #00ffff;
+    }
+
+    .about p {
+      margin-bottom: 28px;
+      text-shadow: 0 0 6px #00ffff44;
+    }
+
+    .about button {
+      display: block;
+      margin: 30px auto 0;
+      padding: 14px 40px;
+      border-radius: 50px;
+      border: 2px solid #00ffff;
+      background-color: transparent;
+      color: #00ffff;
+      font-weight: 700;
+      font-size: 1.2rem;
+      box-shadow: 0 0 20px #00ffffcc;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .about button:hover {
+      background-color: #00ffff;
+      color: #000;
+      box-shadow: 0 0 35px #00ffff, 0 0 65px #00ffff;
+    }
+
+    /* Service Section */
+    .service {
+      max-width: 1100px;
+      margin: 60px auto 100px;
+      padding: 50px 40px;
+      background: linear-gradient(145deg, #001f242d, #004d661a);
+      border-radius: 20px;
+      border: 2px solid #00ffff99;
+      box-shadow:
+        0 0 30px 1px #00ffff55,
+        inset 0 0 25px 0 #00ffff88;
+      backdrop-filter: saturate(180%) blur(12px);
+      color: #d0f7ff;
+      font-size: 1.15rem;
+      line-height: 1.75;
+      font-weight: 500;
+      transition: box-shadow 0.4s ease;
+    }
+
+    .service h2 {
+      color: #00ffff;
+      font-size: 2.75rem;
+      font-weight: 900;
+      margin-bottom: 35px;
+      text-align: center;
+      letter-spacing: 0.15em;
+      text-shadow:
+        0 0 20px #00ffff,
+        0 0 40px #00ffff;
+    }
+
+    .service-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .service-item {
+      background: #002c3c66;
+      border-radius: 15px;
+      padding: 25px 20px;
+      box-shadow: 0 0 15px #00ffff88;
+      transition: all 0.3s ease;
+      cursor: default;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #00ffff, transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .service-item:hover::before {
+      opacity: 1;
+    }
+
+    .service-item:hover {
+      box-shadow: 0 0 30px #00ffffcc;
+      transform: translateY(-5px);
+    }
+
+    .service-item h3 {
+      color: #00ffff;
+      margin-bottom: 15px;
+      font-weight: 700;
+      font-size: 1.5rem;
+      text-shadow: 0 0 10px #00ffffcc;
+    }
+
+    .service-item p {
+      font-size: 1rem;
+      color: #c0f8ffcc;
+      line-height: 1.5;
+      text-shadow: 0 0 5px #00ffff55;
+    }
+
+    /* Contact Section */
+    .contact {
+      max-width: 900px;
+      margin: 60px auto 100px;
+      padding: 50px 40px;
+      background: linear-gradient(145deg, #001f242d, #004d661a);
+      border-radius: 20px;
+      border: 2px solid #00ffff99;
+      box-shadow:
+        0 0 30px 1px #00ffff55,
+        inset 0 0 25px 0 #00ffff88;
+      backdrop-filter: saturate(180%) blur(12px);
+      color: #d0f7ff;
+      font-size: 1.15rem;
+      line-height: 1.75;
+      font-weight: 500;
+    }
+
+    .contact h2 {
+      color: #00ffff;
+      font-size: 2.75rem;
+      font-weight: 900;
+      margin-bottom: 35px;
+      text-align: center;
+      letter-spacing: 0.15em;
+      text-shadow:
+        0 0 20px #00ffff,
+        0 0 40px #00ffff;
+    }
+
+    .contact-form {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      margin-bottom: 8px;
+      color: #00ffff;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      padding: 12px 15px;
+      background: #002c3c66;
+      border: 1px solid #00ffff99;
+      border-radius: 8px;
+      color: #e0f7ff;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #00ffff;
+      box-shadow: 0 0 15px #00ffff88;
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .contact button {
+      padding: 14px 40px;
+      border-radius: 50px;
+      border: 2px solid #00ffff;
+      background-color: transparent;
+      color: #00ffff;
+      font-weight: 700;
+      font-size: 1.2rem;
+      box-shadow: 0 0 20px #00ffffcc;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      margin-top: 20px;
+      justify-self: center;
+    }
+
+    .contact button:hover {
+      background-color: #00ffff;
+      color: #000;
+      box-shadow: 0 0 35px #00ffff, 0 0 65px #00ffff;
+    }
+
+    /* Footer */
+    footer {
+      background: #001f24;
+      text-align: center;
+      padding: 40px 15px;
+      color: #00ffffcc;
+      box-shadow: inset 0 4px 12px #00ffff44;
+      font-weight: 600;
+      font-size: 0.95rem;
+      user-select: none;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      text-align: left;
+    }
+
+    .footer-column h3 {
+      color: #00ffff;
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+      text-shadow: 0 0 10px #00ffff88;
+    }
+
+    .footer-column p {
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: #00ffffaa;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      display: block;
+    }
+
+    .footer-links a:hover {
+      color: #00ffff;
+      text-decoration: underline;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      color: #00ffffaa;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #00ffff;
+    }
+
+    .copyright {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #00ffff33;
+      grid-column: 1 / -1;
+      text-align: center;
+    }
+
+    footer a {
+      color: #00ffffaa;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+      color: #00ffff;
+    }
+
+    /* Floating Cyber Elements */
+    .floating-cyber {
+      position: fixed;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.1;
+    }
+
+    .floating-cyber.circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 1px solid #00ffff;
+      animation: float 15s infinite linear;
+    }
+
+    .floating-cyber.square {
+      width: 80px;
+      height: 80px;
+      border: 1px dashed #00ffff;
+      animation: float 12s infinite linear reverse;
+    }
+
+    .floating-cyber.triangle {
+      width: 0;
+      height: 0;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-bottom: 100px solid #00ffff22;
+      animation: float 18s infinite linear;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+      25% {
+        transform: translate(50vw, 25vh) rotate(90deg);
+      }
+      50% {
+        transform: translate(25vw, 50vh) rotate(180deg);
+      }
+      75% {
+        transform: translate(-25vw, 25vh) rotate(270deg);
+      }
+      100% {
+        transform: translate(0, 0) rotate(360deg);
+      }
+    }
+
+    /* Responsive */
+
+    /* Navbar mobile */
+    @media screen and (max-width: 768px) {
+      .mid ul {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        background: #001f24;
+        height: calc(100vh - 80px);
+        width: 220px;
+        flex-direction: column;
+        padding-top: 20px;
+        transition: right 0.3s ease;
+        box-shadow: -4px 0 30px #00ffffaa;
+        border-radius: 0 0 0 15px;
+        z-index: 1100;
+      }
+
+      .mid ul.active {
+        right: 0;
+      }
+
+      .mid ul li {
+        padding: 18px 25px;
+      }
+
+      .mid ul li a {
+        font-size: 18px;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hamburger.active div:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .hamburger.active div:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active div:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+
+      .right {
+        display: none;
+      }
+
+      .background-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .background-content p {
+        font-size: 1rem;
+      }
+
+      .cyber-globe {
+        width: 150px;
+        height: 150px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .background-content h1 {
+        font-size: 2rem;
+      }
+
+      .about, .service, .contact {
+        padding: 35px 20px;
+        margin: 40px 20px 80px;
+        font-size: 1rem;
+      }
+
+      .about h2, .service h2, .contact h2 {
+        font-size: 2rem;
+      }
+
+      .service-list {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .cyber-globe {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating Cyber Elements -->
+  <div class="floating-cyber circle" style="top:20%; left:10%;"></div>
+  <div class="floating-cyber square" style="top:70%; left:80%;"></div>
+  <div class="floating-cyber triangle" style="top:30%; left:70%;"></div>
+  <div class="floating-cyber circle" style="top:60%; left:20%;"></div>
+
+  <header>
+    <div id="navbar">
+      <div class="left">
+        <img src="images/logo.jpg" alt="Logo" />
+      </div>
+
+      <nav class="mid">
+        <ul id="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#service">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="right">
+        <button onclick="showlogin()">Login</button>
+        <button onclick="showregister()">Register</button>
+      </div>
+
+      <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Background Content Section -->
+  <section id="home" class="background-content">
+    <div class="cyber-grid"></div>
+    <div class="cyber-dots"></div>
+    <div class="cyber-globe"></div>
+    <h1>CYBER SECURITY SOLUTIONS</h1>
+    <p>Protecting your digital world with cutting-edge security technologies and expert threat intelligence. Our comprehensive solutions safeguard your business from evolving cyber threats in an increasingly complex digital landscape.</p>
+    <div class="scrolling-text">
+      • ALERT: Cyber threats increased by 67% in 2023 • Zero-day vulnerabilities detected • Ransomware attacks on the rise • Phishing scams targeting businesses • Secure your systems today •
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About Cyber Security</h2>
+    <p>
+      Cyber security is the practice of protecting computers, servers, mobile devices, electronic systems, networks, and data from malicious attacks. It is also known as information technology security or electronic information security. In today's digital age, cyber threats are evolving rapidly, making robust security measures more important than ever.
+    </p>
+    <p>
+      The importance of cyber security is growing as more businesses and services rely heavily on digital platforms. Effective cyber security measures help prevent unauthorized access, data breaches, and cyber threats which can cause significant financial and reputational damage to organizations of all sizes.
+    </p>
+    <p>
+      Our cyber security strategies involve using advanced firewalls, cutting-edge antivirus software, end-to-end encryption, multi-factor authentication, and regular updates to software and systems. Additionally, we provide comprehensive training programs to help users recognize phishing attempts and other security risks, which is crucial for maintaining a strong security posture in any organization.
+    </p>
+    <button>Learn More</button>
+  </section>
+
+  <!-- Service Section -->
+  <section id="service" class="service">
+    <h2>Our Services</h2>
+    <div class="service-list">
+      <div class="service-item">
+        <h3>Network Security</h3>
+        <p>Comprehensive protection for your network infrastructure from unauthorized access, misuse, or theft. We implement advanced firewall solutions, intrusion detection systems, and regular security audits.</p>
+      </div>
+      <div class="service-item">
+        <h3>Vulnerability Assessment</h3>
+        <p>Identify and prioritize vulnerabilities in your systems before attackers can exploit them. Our thorough assessments include penetration testing and security scanning.</p>
+      </div>
+      <div class="service-item">
+        <h3>Cloud Security</h3>
+        <p>Secure your cloud environments with our specialized solutions for AWS, Azure, and Google Cloud. We ensure your data remains protected while maintaining accessibility.</p>
+      </div>
+      <div class="service-item">
+        <h3>Incident Response</h3>
+        <p>24/7 monitoring and rapid response to security incidents. Our team helps contain threats, minimize damage, and restore operations quickly.</p>
+      </div>
+      <div class="service-item">
+        <h3>Security Training</h3>
+        <p>Customized training programs to educate your staff about current cyber threats, phishing scams, and security best practices to create a human firewall.</p>
+      </div>
+      <div class="service-item">
+        <h3>Compliance Management</h3>
+        <p>Ensure your organization meets industry regulations like GDPR, HIPAA, and PCI DSS with our compliance assessment and implementation services.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form class="contact-form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>CyberSec Solutions</h3>
+        <p>Providing cutting-edge cyber security services to protect your digital assets from evolving threats in today's complex technological landscape.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#service">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="Privacy_Policy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Contact Info</h3>
+        <p><i class="fas fa-map-marker-alt"></i> DR CBS Cyber Security Services LLP</p>
+        <p><i class="fas fa-phone"></i> 08829077770</p>
+        <p><i class="fas fa-envelope"></i> cyberdost@mha.gov.in</p>
+        <p><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM</p>
+      </div>
+        <div class="footer-column">
+        <h3>Address</h3>
+        <p>113, Civil Lines,Suraj Nagar, Civil Lines, Jaipur, Rajasthan, Jaipur, Rajasthan 302006</p>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 CyberSec Solutions. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  
+  <script>
+    // Mobile Navigation
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    const navItems = document.querySelectorAll('.mid ul li a');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        if (navLinks.classList.contains('active')) {
+          hamburger.classList.remove('active');
+          navLinks.classList.remove('active');
+        }
+        
+        // Set active state for clicked item
+        navItems.forEach(navItem => navItem.parentElement.classList.remove('active'));
+        item.parentElement.classList.add('active');
+      });
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Set active nav item based on scroll position
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.scrollY;
+      
+      document.querySelectorAll('section').forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          navItems.forEach(item => {
+            item.parentElement.classList.remove('active');
+            if (item.getAttribute('href') === `#${sectionId}`) {
+              item.parentElement.classList.add('active');
+            }
+          });
+        }
+      });
+    });
+
+    // Create additional floating cyber elements
+    document.addEventListener('DOMContentLoaded', () => {
+      const colors = ['#00ffff', '#00ff88', '#0088ff', '#ff00ff'];
+      const types = ['circle', 'square', 'triangle'];
+      
+      for (let i = 0; i < 8; i++) {
+        const element = document.createElement('div');
+        element.className = `floating-cyber ${types[Math.floor(Math.random() * types.length)]}`;
+        element.style.top = `${Math.random() * 100}%`;
+        element.style.left = `${Math.random() * 100}%`;
+        element.style.opacity = `${Math.random() * 0.1 + 0.05}`;
+        element.style.animationDuration = `${Math.random() * 10 + 10}s`;
+        
+        if (element.className.includes('circle') || element.className.includes('square')) {
+          element.style.borderColor = colors[Math.floor(Math.random() * colors.length)];
+        } else if (element.className.includes('triangle')) {
+          element.style.borderBottomColor = colors[Math.floor(Math.random() * colors.length)];
+        }
+        
+        document.body.appendChild(element);
+      }
+    });
+
+    function showlogin(){
+      window.location.href = "login_page.html";
+    }
+
+    function showregister(){
+      window.location.href = "register_page.html";
+    }
+  </script>
+</body>
+</html>

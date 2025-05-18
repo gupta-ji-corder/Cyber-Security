@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+  <!-- Floating Cyber Elements -->
+  <div class="floating-cyber circle" style="top:20%; left:10%;"></div>
+  <div class="floating-cyber square" style="top:70%; left:80%;"></div>
+  <div class="floating-cyber triangle" style="top:30%; left:70%;"></div>
+  <div class="floating-cyber circle" style="top:60%; left:20%;"></div>
+
+  <header>
+    <div id="navbar">
+      <div class="left">
+        <img src="logo.jpg" alt="Logo" />
+      </div>
+
+      <nav class="mid">
+        <ul id="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#service">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="right">
+        <button onclick="showlogin()">Login</button>
+        <button onclick="showregister()">Register</button>
+      </div>
+
+      <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Background Content Section -->
+  <section id="home" class="background-content">
+    <div class="cyber-grid"></div>
+    <div class="cyber-dots"></div>
+    <div class="cyber-globe"></div>
+    <h1>CYBER SECURITY SOLUTIONS</h1>
+    <p>Protecting your digital world with cutting-edge security technologies and expert threat intelligence. Our comprehensive solutions safeguard your business from evolving cyber threats in an increasingly complex digital landscape.</p>
+    <div class="scrolling-text">
+      • ALERT: Cyber threats increased by 67% in 2023 • Zero-day vulnerabilities detected • Ransomware attacks on the rise • Phishing scams targeting businesses • Secure your systems today •
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About Cyber Security</h2>
+    <p>
+      Cyber security is the practice of protecting computers, servers, mobile devices, electronic systems, networks, and data from malicious attacks. It is also known as information technology security or electronic information security. In today's digital age, cyber threats are evolving rapidly, making robust security measures more important than ever.
+    </p>
+    <p>
+      The importance of cyber security is growing as more businesses and services rely heavily on digital platforms. Effective cyber security measures help prevent unauthorized access, data breaches, and cyber threats which can cause significant financial and reputational damage to organizations of all sizes.
+    </p>
+    <p>
+      Our cyber security strategies involve using advanced firewalls, cutting-edge antivirus software, end-to-end encryption, multi-factor authentication, and regular updates to software and systems. Additionally, we provide comprehensive training programs to help users recognize phishing attempts and other security risks, which is crucial for maintaining a strong security posture in any organization.
+    </p>
+    <button>Learn More</button>
+  </section>
+
+  <!-- Service Section -->
+  <section id="service" class="service">
+    <h2>Our Services</h2>
+    <div class="service-list">
+      <div class="service-item">
+        <h3>Network Security</h3>
+        <p>Comprehensive protection for your network infrastructure from unauthorized access, misuse, or theft. We implement advanced firewall solutions, intrusion detection systems, and regular security audits.</p>
+      </div>
+      <div class="service-item">
+        <h3>Vulnerability Assessment</h3>
+        <p>Identify and prioritize vulnerabilities in your systems before attackers can exploit them. Our thorough assessments include penetration testing and security scanning.</p>
+      </div>
+      <div class="service-item">
+        <h3>Cloud Security</h3>
+        <p>Secure your cloud environments with our specialized solutions for AWS, Azure, and Google Cloud. We ensure your data remains protected while maintaining accessibility.</p>
+      </div>
+      <div class="service-item">
+        <h3>Incident Response</h3>
+        <p>24/7 monitoring and rapid response to security incidents. Our team helps contain threats, minimize damage, and restore operations quickly.</p>
+      </div>
+      <div class="service-item">
+        <h3>Security Training</h3>
+        <p>Customized training programs to educate your staff about current cyber threats, phishing scams, and security best practices to create a human firewall.</p>
+      </div>
+      <div class="service-item">
+        <h3>Compliance Management</h3>
+        <p>Ensure your organization meets industry regulations like GDPR, HIPAA, and PCI DSS with our compliance assessment and implementation services.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form class="contact-form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>CyberSec Solutions</h3>
+        <p>Providing cutting-edge cyber security services to protect your digital assets from evolving threats in today's complex technological landscape.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#service">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="Privacy_Policy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Contact Info</h3>
+        <p><i class="fas fa-map-marker-alt"></i> DR CBS Cyber Security Services LLP</p>
+        <p><i class="fas fa-phone"></i> 08829077770</p>
+        <p><i class="fas fa-envelope"></i> cyberdost@mha.gov.in</p>
+        <p><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM</p>
+      </div>
+        <div class="footer-column">
+        <h3>Address</h3>
+        <p>113, Civil Lines,Suraj Nagar, Civil Lines, Jaipur, Rajasthan, Jaipur, Rajasthan 302006</p>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 CyberSec Solutions. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+</html>
